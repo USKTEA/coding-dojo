@@ -6,13 +6,14 @@ public class Solution {
 
         int n = scanner.nextInt();
         int m = scanner.nextInt();
+        int sum = n * m;
 
-        for (int i = 0; i < m; i += 1) {
-            for (int j = 0; j < n; j += 1) {
-                System.out.print("*");
+        for (int i = 0; i < sum; i += 1) {
+            if (i != 0 && i % n == 0) {
+                System.out.println();
             }
 
-            System.out.println();
+            System.out.print("*");
         }
     }
 }
