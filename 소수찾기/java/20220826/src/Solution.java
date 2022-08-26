@@ -3,7 +3,7 @@ public class Solution {
         int decimal = 0;
 
         for (int i = 2; i < n + 1; i += 1) {
-            int squirt = (int)(double)Math.sqrt(n);
+            int squirt = (int)Math.sqrt(n);
             boolean isDecimal = true;
 
             for (int j = 2; j <= squirt; j += 1) {
