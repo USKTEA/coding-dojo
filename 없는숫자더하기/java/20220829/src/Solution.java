@@ -6,8 +6,6 @@ public class Solution {
     List<Integer> numberList;
 
     public int solution(int[] numbers) {
-        int min = findNumber(numbers, 0);
-        int max = findNumber(numbers, numbers.length - 1);
         int sumOfZeroToNine = sumOfBetween(0, 9);
         int sumOfNumbers = addNumber(numbers);
 
@@ -22,18 +20,6 @@ public class Solution {
         }
 
         return sum;
-    }
-
-    public int findNumber(int[] numbers, int index) {
-        numberList = new ArrayList<>();
-
-        for (int number : numbers) {
-            numberList.add(number);
-        }
-
-        Collections.sort(numberList);
-
-        return numberList.get(index);
     }
 
     public int sumOfBetween(int a, int b) {
