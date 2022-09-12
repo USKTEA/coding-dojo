@@ -18,9 +18,12 @@ public class Solution {
 
     private int changeSign(int number) {
         if (signs[index] == false) {
+            index += 1;
+
             return number * -1;
         }
 
+        index += 1;
         return number;
     }
 }
