@@ -29,7 +29,7 @@ class SolutionTest {
         int [][] sizes = new int[][] {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
         int longestLength = solution.longestLength(sizes);
 
-        int lastLongLength = solution.lastLongLength(sizes, longestLength);
+        int lastLongLength = solution.lastLongLength(sizes);
 
         assertEquals(50, lastLongLength);
     }
@@ -39,7 +39,7 @@ class SolutionTest {
         Solution solution = new Solution();
         int [][] sizes = new int[][] {{60, 50}, {30, 70}, {60, 30}, {80, 40}};
         int longest = solution.longestLength(sizes);
-        int lastLongest = solution.lastLongLength(sizes, longest);
+        int lastLongest = solution.lastLongLength(sizes);
         int area = solution.calculateArea(longest, lastLongest);
 
         assertEquals(4000, area);

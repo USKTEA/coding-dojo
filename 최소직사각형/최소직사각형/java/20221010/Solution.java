@@ -3,7 +3,7 @@ import java.util.Arrays;
 public class Solution {
     public int solution(int[][] sizes) {
         int longest = longestLength(sizes);
-        int lastLongest = lastLongLength(sizes, longest);
+        int lastLongest = lastLongLength(sizes);
 
         return calculateArea(longest, lastLongest);
     }
@@ -16,7 +16,7 @@ public class Solution {
         return result;
     }
 
-    public int lastLongLength(int[][] sizes, int longestLength) {
+    public int lastLongLength(int[][] sizes) {
         int result = Arrays.stream(sizes)
                 .map(card -> Math.min(card[0], card[1]))
                 .reduce(0, (a, b) -> Math.max(a, b));
