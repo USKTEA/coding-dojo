@@ -1,8 +1,8 @@
 ---
 name: "\U0001F4A1 How to solve it?"
 about: 문제를 풀기 전에 어떻게 풀 것인지 먼저 생각을 정리하고, 다 풀고 나서 회고한다.
-title: ''
-labels: ''
+title: 'YYYYMMDD 코딩 도장 : {문제명}'
+labels: how to solve
 assignees: ''
 
 ---
