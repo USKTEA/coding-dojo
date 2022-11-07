@@ -9,19 +9,33 @@ public class Solution {
     public int[] solution(String[] id_list, String[] report, int k) {
         Map<String, User> users = toUsers(id_list);
 
-        reports(users, report);
-
-        Map<User, Integer> reportResult = reportResult(users, new HashMap<>());
+        Map<User, Integer> reportResult = reports(users, report);
 
         Map<String, User> baned = getBanedUser(reportResult, k);
 
-        users.values().forEach((user) -> user.getMailed(baned));
+        Map<String, User> mailedUser = sendMail(users, baned);
 
-        List<Integer> mailCounts = new ArrayList<>();
+        int[] mailedCount = countEmailsPerUser(mailedUser);
 
-        users.values().forEach((user) -> mailCounts.add(user.mailed()));
+        return mailedCount;
+    }
 
-        return mailCounts.stream().mapToInt(Integer::intValue).toArray();
+    private int[] countEmailsPerUser(Map<String,User> mailedUser) {
+        List<Integer> mails = new ArrayList<>();
+
+        mailedUser.values().forEach((user) -> {
+            user.writeMailedCount(mails);
+        });
+
+        return mails.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    private Map<String,User> sendMail(Map<String,User> users, Map<String,User> baned) {
+        Map<String, User> mailedUser = new LinkedHashMap<>(users);
+
+        mailedUser.values().forEach((user) -> user.getMailed(baned));
+
+        return mailedUser;
     }
 
     public Map<String, User> toUsers(String[] strings) {
@@ -34,13 +48,21 @@ public class Solution {
         return users;
     }
 
-    public void reports(Map<String, User> users, String[] report) {
+    public Map<User, Integer> reports(Map<String, User> users, String[] report) {
+        Map<User, Integer> reportResult = new HashMap<>();
+
         Arrays.stream(report).forEach((history) -> {
             String userId = history.split(" ")[0];
             String reportId = history.split(" ")[1];
 
             users.get(userId).report(reportId);
         });
+
+        users.values().stream().forEach((user) -> {
+            user.writeReport(reportResult);
+        });
+
+        return reportResult;
     }
 
     public Map<User, Integer> reportResult(Map<String, User> users, Map<User, Integer> reports) {

@@ -104,6 +104,6 @@ class SolutionTest {
                 new String[] {"muzi frodo", "apeach frodo", "frodo neo", "muzi neo", "apeach muzi"},
                 2);
 
-        assertArrayEquals(answer, new int[] {2,1,1,0});
+        assertArrayEquals(new int[] {2,1,1,0}, answer);
     }
 }
