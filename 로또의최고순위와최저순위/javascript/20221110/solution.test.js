@@ -1,7 +1,7 @@
 import {
   getScoreAndMagicNumber,
   countScore,
-  getRanking,
+  ranking,
   highestAndLowestRanking,
   solution,
 } from './solution';
@@ -16,8 +16,8 @@ test('count highest and lowest score', () => {
   expect(countScore(2, 2)).toEqual([4, 2]);
 });
 
-test('getRanking', () => {
-  expect(getRanking[6]).toBe(1);
+test('ranking', () => {
+  expect(ranking[6]).toBe(1);
 });
 
 test('get highest and lowest ranking', () => {

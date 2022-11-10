@@ -18,9 +18,9 @@ export const getScoreAndMagicNumber = (lottos, win_nums) => lottos.reduce(
   [0, 0],
 );
 
-export const countScore = (highest, magicNumber) => [highest + magicNumber, highest];
+export const countScore = (minimum, magicNumber) => [minimum + magicNumber, minimum];
 
-export const getRanking = {
+export const ranking = {
   6: 1,
   5: 2,
   4: 3,
@@ -29,8 +29,8 @@ export const getRanking = {
 };
 
 export const highestAndLowestRanking = (highest, lowest) => [
-  getRanking[highest] || 6,
-  getRanking[lowest] || 6,
+  ranking[highest] || 6,
+  ranking[lowest] || 6,
 ];
 
 export const solution = (lottos, win_nums) => pipe(
