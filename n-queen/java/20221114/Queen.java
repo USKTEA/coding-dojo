@@ -15,22 +15,32 @@ public class Queen {
                         .forEach((x) -> {
                     if (y == position[0] && x == position[1]) {
                         board[y][x] = 1;
+
+                        return;
                     }
 
                     if (y == position[0]) {
                         board[y][x] = 1;
+
+                        return;
                     }
 
                     if (x == position[1]) {
                         board[y][x] = 1;
+
+                        return;
                     }
 
                     if (x + y == position[0] + position[1]) {
                         board[y][x] = 1;
+
+                        return;
                     }
 
-                    if (Math.abs(x - y) == Math.abs(position[0] - position[1])) {
+                    if (Math.abs(y - x) == Math.abs(position[0] - position[1])) {
                         board[y][x] = 1;
+
+                        return;
                     }
                 }));
 
