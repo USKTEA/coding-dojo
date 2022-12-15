@@ -10,6 +10,6 @@ export const solution = (s) => (
       index === 0
         ? current.toUpperCase()
         : acc + toJaden({
-          current: s[index],
+          current,
           previous: s[index - 1],
         })), ''));
