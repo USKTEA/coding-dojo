@@ -4,7 +4,7 @@ export const toJaden = ({ current, previous }) => (
     : String(current).toLowerCase()
 );
 
-export const solution = (s) => (
+export const jadenConvertor = (s) => (
   s.split('')
     .reduce((acc, current, index) => (
       index === 0

@@ -1,4 +1,4 @@
-import { toJaden, solution } from './solution';
+import { toJaden, jadenConvertor } from './solution';
 
 test('toJaden', () => {
   expect(toJaden({ current: 'p', previous: ' ' })).toBe('P');
@@ -7,7 +7,7 @@ test('toJaden', () => {
   expect(toJaden({ current: 'p', previous: '3' })).toBe('p');
 });
 
-test('solution', () => {
-  expect(solution('3people unFollowed me')).toBe('3people Unfollowed Me');
-  expect(solution('for the last week')).toBe('For The Last Week');
+test('jadenConvertor', () => {
+  expect(jadenConvertor('3people unFollowed me')).toBe('3people Unfollowed Me');
+  expect(jadenConvertor('for the last week')).toBe('For The Last Week');
 });
