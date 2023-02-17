@@ -7,7 +7,7 @@ class Solution {
         int middleIndex = getMiddleIndex(nodeSize);
 
         ListNode middleNode = getMiddle(head, middleIndex);
-
+        
         return middleNode;
     }
 
