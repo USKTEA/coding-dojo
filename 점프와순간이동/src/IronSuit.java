@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class IronSuit {
     private int batteryUsage;
     private int jumpDistance;
