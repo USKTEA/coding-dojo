@@ -5,7 +5,7 @@ public class Solution {
     public int solution(int[] priorities, int location) {
         return indexOf(print(toDocuments(priorities)), location);
     }
-    
+
     public List<Document> toDocuments(int[] properties) {
         List<Document> documents = new ArrayList<>();
 
