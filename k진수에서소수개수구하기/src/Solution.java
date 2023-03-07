@@ -6,7 +6,7 @@ public class Solution {
     public int solution(int n, int k) {
         return countPrimeNumber(split(changeRadix(n, k)));
     }
-    
+
     public String changeRadix(int number, int to) {
         return Integer.toString(number, to);
     }
