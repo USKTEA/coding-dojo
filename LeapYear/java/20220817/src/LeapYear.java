@@ -5,7 +5,6 @@ public class LeapYear {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("연도: ");
-
         int inputYear = scanner.nextInt();
         boolean isLeapYear = false;
 
