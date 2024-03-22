@@ -11,7 +11,7 @@ class Solution {
 
         val resultHead = resultNode
         var next = head.next
-        
+
         while (next != null) {
             if (resultNode.value != next.value) {
                 resultNode.next = ListNode(next.value)
