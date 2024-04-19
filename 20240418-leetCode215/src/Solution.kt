@@ -13,11 +13,17 @@ class Solution {
     //순서대로
     //마지막 값을 반환한다
     fun findKthLargest(nums: IntArray, k: Int): Int {
-        val ranking = Ranking(k)
+//
+//        val ranking = Ranking(k)
+//
+//        nums.forEach { ranking.add(it) }
+//
+//        return ranking.at(k)
+        val sort = QuickSort()
+        val sorted = sort.process(nums)
 
-        nums.forEach { ranking.add(it) }
-
-        return ranking.at(k)
+        println(sorted.toList())
+        return sorted[sorted.size - k]
     }
 }
 

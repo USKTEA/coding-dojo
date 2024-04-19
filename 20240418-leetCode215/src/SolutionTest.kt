@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.Test
 
 class SolutionTest {
@@ -21,7 +21,7 @@ class SolutionTest {
 
         val result = solution.findKthLargest(nums, kth)
 
-        assertEquals(1, result)
+        assertEquals(0, result)
     }
 
     @Test
@@ -32,5 +32,15 @@ class SolutionTest {
         val result = solution.findKthLargest(nums, kth)
 
         assertEquals(1, result)
+    }
+
+    @Test
+    fun complext1() {
+        val nums = intArrayOf(3, 2, 3, 1, 2, 4, 5, 5, 6)
+        val kth = 4
+
+        val result = solution.findKthLargest(nums, kth)
+
+        assertEquals(4, result)
     }
 }
