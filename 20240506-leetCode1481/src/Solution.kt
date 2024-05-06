@@ -34,9 +34,7 @@ class Solution {
             toDelete = 0
         }
 
-        return treeMap.values.fold(0) { acc: Int, numbers: MutableList<Int> ->
-            acc + numbers.size
-        }
+        return treeMap.values.sumOf { it.size }
     }
 
     fun toMap(arr: IntArray): MutableMap<Int, Int> {
