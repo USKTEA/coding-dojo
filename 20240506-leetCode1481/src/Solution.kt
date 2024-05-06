@@ -31,8 +31,7 @@ class Solution {
 
             val shouldDelete = toDelete / count
             treeMap[count] = numbers.slice(0..numbers.lastIndex - shouldDelete).toMutableList()
-
-            break
+            toDelete = 0
         }
 
         return treeMap.values.fold(0) { acc: Int, numbers: MutableList<Int> ->
