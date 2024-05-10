@@ -20,7 +20,7 @@ class Solution {
             answer = Math.max(answer, right - left + 1)
             right += 1
         }
-        
+
         return answer
     }
 }
