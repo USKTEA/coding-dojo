@@ -1,21 +1,4 @@
 class Solution {
-    //id, start | end, time
-    //2, ["0:start:0","1:start:2","1:end:5","0:end:6"] => [3, 4]
-    //log in Logs
-    //val log = parse(logs)
-    //add(log)
-    //if (logStack.isEmpty()) {
-    // logStack.add(log)
-    // continue
-    // }
-    // time { id to Int }
-    // timeGetOrDefault(0)
-    // time[poll.id] += log.time - poll.time
-    // }
-    val logStack = mutableListOf<Log>()
-    val executed = mutableListOf<Log>()
-    val timeTable = mutableMapOf<Int, Int>()
-
     fun exclusiveTime(n: Int, logs: List<String>): IntArray {
         val stack = mutableListOf<Log>()
         val timeTable = IntArray(n)
