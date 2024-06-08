@@ -9,31 +9,15 @@ class Solution {
     //[] => [] index - index
     fun dailyTemperatures(temperatures: IntArray): IntArray {
         val result = IntArray(temperatures.size) { 0 }
-        var removed = mutableListOf<Number>()
-        val numbers = temperatures.mapIndexed { index, i ->
-            Number(value = i, index = index)
-        }.toMutableList()
+        val stack = mutableListOf<Number>()
 
-        removed.add(numbers.removeFirst())
-
-        while (numbers.isNotEmpty()) {
-            val removedNumber = numbers.removeFirst()
-            val copy = mutableListOf<Number>()
-
-            while (removed.isNotEmpty()) {
-                val first = removed.removeFirst()
-
-                if (first.value < removedNumber.value) {
-                    result[first.index] = removedNumber.index - first.index
-
-                    continue
-                }
-
-                copy.add(first)
+        temperatures.forEachIndexed { index, temp ->
+            while (stack.isNotEmpty() && stack.last().value < temp) {
+                val last = stack.removeLast()
+                result[last.index] = index - last.index
             }
 
-            copy.add(removedNumber)
-            removed = copy
+            stack.add(Number(temp, index))
         }
 
         return result
