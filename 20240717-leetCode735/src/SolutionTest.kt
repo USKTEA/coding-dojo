@@ -8,6 +8,7 @@ class SolutionTest {
     fun asteroidCollision() {
         val result = solution.asteroidCollision(intArrayOf(5, 10, -5))
 
+
         assertArrayEquals(
             intArrayOf(5, 10), result
         )
