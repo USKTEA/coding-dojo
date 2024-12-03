@@ -2,14 +2,12 @@ class Solution {
     //numberSounds는 -로 단위가 구분된다
     //numberSounds의 마지막 단위는 and가 있어야 한다
     //crore, lakh, thousand, hundred 앞에는 단위가 있어야 한다
-    private val parsingFunctions: List<(parsedResult: ParsedResult) -> ParsedResult> = listOf(
-        { parsedResult -> parse(parsedResult, IndianUnit.CRORE) },
-        { parsedResult -> parse(parsedResult, IndianUnit.LAKH) },
-        { parsedResult -> parse(parsedResult, IndianUnit.THOUSAND) },
-        { parsedResult -> parse(parsedResult, IndianUnit.HUNDRED) },
-        { parsedResult -> parse(parsedResult, IndianUnit.TEN) },
-        { parsedResult -> parse(parsedResult, IndianUnit.ONE) },
-    )
+    private val parsingFunctions: List<(parsedResult: ParsedResult) -> ParsedResult> = IndianUnit.entries.fold(
+        mutableListOf()
+    ) { functions, unit ->
+        functions.add { parsedResult -> parse(parsedResult, unit) }
+        functions
+    }
 
     fun solve(number: String, numberSounds: String): Int {
         val parsed = parsingFunctions.fold(ParsedResult(number.toInt())) { acc, function -> function(acc) }
