@@ -7,33 +7,37 @@ class Solution {
     //문자열 배열은 0부터 시작하고 마지막 index까지 순회하면 역순으로 0까지 순회한다
     //문자열 배열의 요소를 순서대로 합친 결과를 반환한다
     fun convert(word: String, row: Int): String {
-        val basket = WordBasket.withSize(row)
+        val basket = ZigZagList.withSize(row)
 
-        word.forEach {
-            basket.add(it)
-        }
+        basket.addAll(word)
 
         return basket.wordWithIndex()
     }
 }
 
-data class WordBasket(
-    var words: MutableList<String>,
+data class ZigZagList(
+    val words: MutableList<String>,
     var pointer: Int = 0,
     var direction: Direction = Direction.RIGHT
-) {
+) : MutableList<String> by words {
     fun wordWithIndex(): String {
         return words.joinToString("")
     }
 
-    fun add(character: Char) {
-        if (words.size <= 1) {
-            words[pointer] = words[pointer] + character
+    fun addAll(word: CharSequence) {
+        for (character in word) {
+            this.add(character.toString())
+        }
+    }
 
-            return
+    override fun add(element: String): Boolean {
+        if (words.size <= 1) {
+            words[pointer] = words[pointer] + element
+
+            return true
         }
 
-        words[pointer] = words[pointer] + character
+        words[pointer] = words[pointer] + element
 
         if (direction == Direction.RIGHT) {
             pointer += 1
@@ -46,6 +50,8 @@ data class WordBasket(
         if (pointer == words.lastIndex || pointer == 0) {
             direction = direction.switch()
         }
+
+        return true
     }
 
     enum class Direction {
@@ -61,12 +67,12 @@ data class WordBasket(
     }
 
     companion object {
-        fun withSize(row: Int): WordBasket {
+        fun withSize(row: Int): ZigZagList {
             if (row <= 1) {
-                return WordBasket(MutableList(1) { "" })
+                return ZigZagList(MutableList(1) { "" })
             }
 
-            return WordBasket(MutableList(row) { "" })
+            return ZigZagList(MutableList(row) { "" })
         }
     }
 }
